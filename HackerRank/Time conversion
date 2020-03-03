@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+string timeConversion(string s) {
+    string hr = s.substr(0,2);
+    int hrc = stoi(s.substr(0,2));
+    string hr1 = "";
+    string min = s.substr(3,2);
+    string sec = s.substr(6,2);
+    string even = s.substr(8,2);
+    if(even == "PM")
+    {
+        if(hrc == 12);
+        else
+        hrc = hrc+12;
+    }
+
+    if(even == "AM")
+    {
+        if (hrc == 12)
+        hr1 = "00";
+    }
+
+    string final_timec = to_string(hrc) + ":" + min + ":"+sec;
+    string final_time = hr + ":" + min + ":"+sec;
+    if ( hr1 != ""){
+   
+    string final_time1 = hr1 + ":" + min + ":"+sec;
+    return final_time1;
+    }
+    if (even == "AM" && hrc < 12)
+    return final_time;
+    return final_timec;
+    
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string s;
+    getline(cin, s);
+
+    string result = timeConversion(s);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}
